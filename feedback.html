@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Feedback Pagina</title>
+</head>
+<body>
+  <h1>Feedback</h1>
+  
+  <!-- Formulier voor feedback -->
+  <form id="feedbackForm">
+    <label for="name">Naam:</label>
+    <input type="text" id="name" name="name"><br><br>
+    <label for="comment">Opmerking:</label><br>
+    <textarea id="comment" name="comment" rows="4" cols="50"></textarea><br><br>
+    <input type="submit" value="Plaats opmerking">
+  </form>
+
+  <hr>
+
+  <!-- Gebied om commentaren weer te geven -->
+  <div id="comments">
+    <!-- Hier komen de commentaren -->
+  </div>
+
+  <!-- JavaScript-code -->
+  <script src="comment_script.js"></script>
+</body>
+</html>
