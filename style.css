@@ -185,7 +185,6 @@ input[type="submit"]:hover {
 
 
 /*  debut du code doelstellingen 1 brainstorming */
-
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
@@ -201,8 +200,23 @@ body {
     justify-content: space-between;
 }
 
-.task input {
-    margin-right: 10px;
+.task-content {
+    display: flex;
+    align-items: center;
+}
+
+.task textarea {
+    margin-right: 5%;
+    width: 60%;
+    max-width: 80%;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.task button {
+    width: 30%;
+    max-width: 40%;
+    border-radius: 10px;
 }
 
 .button-container {
@@ -211,5 +225,8 @@ body {
 
 button {
     margin-right: 10px;
+    padding: 10px;
 }
+
+
 /* fin du code doelstellingen 1 brainstorming */

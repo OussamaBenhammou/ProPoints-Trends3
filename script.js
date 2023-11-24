@@ -52,26 +52,26 @@ window.onload = function() {
 function addTask() {
     const taskContainer = document.getElementById('taskContainer');
     
-    // Create a new task element
     const taskElement = document.createElement('div');
     taskElement.classList.add('task');
 
-    // Create an input for the task
-    const taskInput = document.createElement('input');
-    taskInput.type = 'text';
-    taskInput.placeholder = 'Objectif';
+    const taskContent = document.createElement('div');
+    taskContent.classList.add('task-content');
 
-    // Create a "Done" button
+    const taskTextarea = document.createElement('textarea');
+    taskTextarea.placeholder = 'Objectif';
+    taskTextarea.rows = 4;
+
     const doneButton = document.createElement('button');
     doneButton.textContent = 'Done';
     doneButton.onclick = function() {
         taskContainer.removeChild(taskElement);
-        saveTasks(); // Sauvegarde après suppression d'une tâche
+        saveTasks();
     };
 
-    // Append elements to the task container
-    taskElement.appendChild(taskInput);
-    taskElement.appendChild(doneButton);
+    taskContent.appendChild(taskTextarea);
+    taskContent.appendChild(doneButton);
+    taskElement.appendChild(taskContent);
     taskContainer.appendChild(taskElement);
 }
 
@@ -79,12 +79,10 @@ function saveTasks() {
     const taskContainer = document.getElementById('taskContainer');
     const tasks = [];
 
-    // Récupérer le texte de chaque tâche
-    taskContainer.querySelectorAll('.task input').forEach(function(taskInput) {
-        tasks.push(taskInput.value);
+    taskContainer.querySelectorAll('.task textarea').forEach(function(taskTextarea) {
+        tasks.push(taskTextarea.value);
     });
 
-    // Sauvegarder dans localStorage
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
@@ -92,14 +90,15 @@ function loadTasks() {
     const taskContainer = document.getElementById('taskContainer');
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
-    // Ajouter les tâches à partir de localStorage
     tasks.forEach(function(taskText) {
         const taskElement = document.createElement('div');
         taskElement.classList.add('task');
 
-        const taskInput = document.createElement('input');
-        taskInput.type = 'text';
-        taskInput.value = taskText;
+        const taskContent = document.createElement('div');
+        taskContent.classList.add('task-content');
+
+        const taskTextarea = document.createElement('textarea');
+        taskTextarea.value = taskText;
 
         const doneButton = document.createElement('button');
         doneButton.textContent = 'Done';
@@ -108,8 +107,9 @@ function loadTasks() {
             saveTasks();
         };
 
-        taskElement.appendChild(taskInput);
-        taskElement.appendChild(doneButton);
+        taskContent.appendChild(taskTextarea);
+        taskContent.appendChild(doneButton);
+        taskElement.appendChild(taskContent);
         taskContainer.appendChild(taskElement);
     });
 }
@@ -118,4 +118,6 @@ function saveAndRedirect() {
     saveTasks();
     window.location.href = 'index.html';
 }
+
+
 // fin du code doelstellingen 1 voor brainstorming
