@@ -236,6 +236,26 @@ button {
     margin-right: 10px;
     padding: 10px;
 }
+.company-info, .team-members {
+    background-color: #fff; /* Achtergrondkleur van secties */
+    padding: 20px;
+    margin-bottom: 30px; /* Ruimte onder elke sectie */
+    border-radius: 5px; /* Afronding van hoeken voor secties */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Schaduw effect voor secties */
+}
+
+.company-info h2, .team-members h2 {
+    color: #333; /* Kleur van sectietitels */
+    margin-bottom: 20px;
+}
+
+.team-members ul {
+    padding-left: 20px;
+}
+
+.team-members ul li {
+    margin-bottom: 10px;
+}
 
 
 /* Algemene stijlen voor de hele applicatie */
