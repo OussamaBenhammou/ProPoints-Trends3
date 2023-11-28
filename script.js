@@ -22,9 +22,9 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
     // Simuleer leaderboard-gegevens (gebruik je eigen logica om werkelijke gegevens op te halen)
     const leaderboardData = [
-        { name: "Werknemer 1", points: 150 },
-        { name: "Werknemer 2", points: 120 },
-        { name: "Werknemer 3", points: 100 },
+        { name: "Employee 1", points: 150 },
+        { name: "Employee 2", points: 120 },
+        { name: "Employee 3", points: 100 },
         // Voeg meer werknemers toe zoals nodig
     ];
 
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
     leaderboardData.forEach((employee, index) => {
         const leaderboardItem = document.createElement("li");
         leaderboardItem.classList.add("leaderboard-item");
-        leaderboardItem.innerHTML = `${index + 1}. ${employee.name} - ${employee.points} punten`;
+        leaderboardItem.innerHTML = `${index + 1}. ${employee.name} - ${employee.points} points`;
         leaderboardList.appendChild(leaderboardItem);
     });
 });
