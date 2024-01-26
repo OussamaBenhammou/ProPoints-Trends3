@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css & js/style.css">
+    <title>Development</title>
+</head>
+
+<body class="body">
+
+    <!-- Navigatiebalk -->
+    <nav class="navbar">
+        <a href="../../login/homelogin.html">Home</a>
+        <a href="../../login/feedback.html">Feedback</a>
+        <a href="../../login/mijnAccount.html">My Account</a>
+        <a href="../../login/Aboutlogin.html">About us</a>
+
+        <a href="../../home.html" class="login">Log out</a>
+    </nav>
+
+    <h1>Development Objective 1</h1>
+
+    <div class="tasks">
+        <h2>Tasks</h2>
+        <ul id="taskList" class="task-list">
+            <!-- La liste des tâches en cours sera affichée ici -->
+        </ul>
+
+        <div class="completed-tasks">
+            <h2>Completed Tasks</h2>
+            <ul id="completedTaskList" class="completed-task-list">
+                <!-- La liste des tâches terminées sera affichée ici -->
+            </ul>
+        </div>
+
+        <form id="taskForm" class="task-form">
+            <input type="text" id="newTask" class="task-input" placeholder="Ajouter une tâche">
+            <button type="button" onclick="addTask()" class="task-button">Add</button>
+        </form>
+    </div>
+
+
+
+    <script src="css & js/js.js"></script>
+</body>
+
+</html>
