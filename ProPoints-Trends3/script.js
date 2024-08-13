@@ -148,3 +148,19 @@ function saveAndRedirect() {
 
 
 // fin du code doelstellingen 1 voor brainstorming
+
+//Begin code contactpagina
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // Simuleer een succesvolle verzending
+        var formStatus = document.getElementById("formStatus");
+        formStatus.textContent = "Thank you! Your message has been sent successfully.";
+
+        // Optioneel: Hier kun je code toevoegen om het formulier naar een server te sturen
+        // via bijvoorbeeld een XMLHttpRequest of fetch API.
+    });
+});
+//einde code contactpagina
