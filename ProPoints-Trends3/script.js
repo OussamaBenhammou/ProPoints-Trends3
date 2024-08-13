@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const password = document.getElementById("password").value;
 
         // Voer hier de inlogvalidatie uit. Dit is een eenvoudig voorbeeld.
-        if (username === "gebruiker" && password === "wachtwoord") {
+        if (username === "username" && password === "password") {
             alert("Inloggen gelukt!");
 
             window.location.href = "index.html";
@@ -145,6 +145,22 @@ function saveAndRedirect() {
     saveTasks();
     window.location.href = 'home.html';
 }
+document.addEventListener("DOMContentLoaded", function () {
+    // Code pour le chargement de l'image de profil
+    document.getElementById('upload-btn').addEventListener('change', function (event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById('profile-img').src = e.target.result;
+            }
+            reader.readAsDataURL(file);
+        }
+    });
+
+    // Autre code pour le leaderboard, etc.
+});
+
 
 
 // fin du code doelstellingen 1 voor brainstorming
