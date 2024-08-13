@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const password = document.getElementById("password").value;
 
         // Voer hier de inlogvalidatie uit. Dit is een eenvoudig voorbeeld.
-        if (username === "gebruiker" && password === "wachtwoord") {
+        if (username === "username" && password === "password") {
             alert("Inloggen gelukt!");
 
             window.location.href = "index.html";
