@@ -20,5 +20,5 @@ function loginUser() {
 
 function redirectHome() {
     // Vous pouvez utiliser window.location.href pour rediriger vers home.html
-    window.location.href = "hpmelogin.html";
+    window.location.href = "homelogin.html";
 }
