@@ -327,5 +327,26 @@ body {
 #email {
     color: #e37400; /* Oranje kleur voor e-mail */
 }
+.user-details {
+    text-align: center;
+}
 
+.profile-picture {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+
+#upload-btn {
+    display: block;
+    margin: 10px auto;
+}
 /* fin du code doelstellingen 1 brainstorming */
