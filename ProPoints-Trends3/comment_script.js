@@ -19,15 +19,24 @@ function addComment() {
       deleteButton.onclick = function() {
         deleteComment(commentElement);
       };
+
+      let addToCommentButton = document.createElement('button');
+      addToCommentButton.innertext = 'Reageer';
+      addToCommentButton.onclick = function() {
+        addToCommentButton(addToCommentButton);
+      };
   
       let optionsDiv = document.createElement('div');
       optionsDiv.classList.add('comment-options');
       optionsDiv.appendChild(editButton);
       optionsDiv.appendChild(deleteButton);
+      optionsDiv.appendChild(addToCommentButton);
   
       commentElement.appendChild(optionsDiv);
   
       document.getElementById('comments').appendChild(commentElement);
+
+ 
   
       // Reset invoervelden
       document.getElementById('name').value = '';
