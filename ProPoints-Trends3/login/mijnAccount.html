@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mijn Account - Garvis Project</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="body">
     <!-- Navigatiebalk -->
     <nav class="navbar">
@@ -26,8 +28,12 @@
             </div>
             <p>Name: <span id="name">Admin</span></p>
             <p>First Name: <span id="first-name">Admin</span></p>
+            <p>Last Name: <span id="last-name">Admin</span></p>
             <p>Birthdate: <span id="birthdate">01-01-1990</span></p>
             <p>Email: <span id="email">admin@admin.be</span></p>
+
+            <button id="edit-btn">Bewerken</button>
+            <button id="save-btn" style="display:none;">Opslaan</button>
         </div>
     </div>
 
@@ -36,13 +42,22 @@
             const profileImg = document.getElementById('profile-img');
             const uploadBtn = document.getElementById('upload-btn');
 
-            // Charger l'image du localStorage s'il y en a une
+            // Laad opgeslagen gegevens uit localStorage
+            const fields = ['name', 'first-name', 'last-name', 'birthdate', 'email'];
+            fields.forEach(fieldId => {
+                const savedValue = localStorage.getItem(fieldId);
+                if (savedValue) {
+                    document.getElementById(fieldId).textContent = savedValue;
+                }
+            });
+
+            // Laad opgeslagen profielfoto
             const savedImage = localStorage.getItem('profileImage');
             if (savedImage) {
                 profileImg.src = savedImage;
             }
 
-            // Événement de changement sur le bouton de téléchargement
+            // Upload nieuwe profielfoto
             uploadBtn.addEventListener('change', function (event) {
                 const file = event.target.files[0];
                 if (file) {
@@ -51,13 +66,54 @@
                         const imageDataUrl = e.target.result;
                         profileImg.src = imageDataUrl;
 
-                        // Enregistrer l'image dans le localStorage
+                        // Sla de profielfoto op in localStorage
                         localStorage.setItem('profileImage', imageDataUrl);
                     };
                     reader.readAsDataURL(file);
                 }
             });
+
+            const editBtn = document.getElementById('edit-btn');
+            const saveBtn = document.getElementById('save-btn');
+
+            // Functie om velden bewerkbaar te maken
+            function makeFieldsEditable(editable) {
+                fields.forEach(fieldId => {
+                    const span = document.getElementById(fieldId);
+                    if (editable) {
+                        const input = document.createElement('input');
+                        input.type = fieldId === 'birthdate' ? 'date' : 'text';
+                        input.id = fieldId;
+                        input.value = span.textContent;
+                        span.parentNode.replaceChild(input, span);
+                    } else {
+                        const input = document.getElementById(fieldId);
+                        const spanNew = document.createElement('span');
+                        spanNew.id = fieldId;
+                        spanNew.textContent = input.value;
+                        input.parentNode.replaceChild(spanNew, input);
+                    }
+                });
+                saveBtn.style.display = editable ? 'inline' : 'none';
+                editBtn.style.display = editable ? 'none' : 'inline';
+            }
+
+            // Bewerken knop event listener
+            editBtn.addEventListener('click', function () {
+                makeFieldsEditable(true);
+            });
+
+            // Opslaan knop event listener
+            saveBtn.addEventListener('click', function () {
+                fields.forEach(fieldId => {
+                    const input = document.getElementById(fieldId);
+                    localStorage.setItem(fieldId, input.value);
+                });
+
+                makeFieldsEditable(false);
+            });
         });
     </script>
 </body>
+
 </html>
