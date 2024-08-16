@@ -145,6 +145,38 @@ function saveAndRedirect() {
     saveTasks();
     window.location.href = 'home.html';
 }
+document.addEventListener("DOMContentLoaded", function () {
+    // Code pour le chargement de l'image de profil
+    document.getElementById('upload-btn').addEventListener('change', function (event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById('profile-img').src = e.target.result;
+            }
+            reader.readAsDataURL(file);
+        }
+    });
+
+    // Autre code pour le leaderboard, etc.
+});
+
 
 
 // fin du code doelstellingen 1 voor brainstorming
+
+//Begin code contactpagina
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // Simuleer een succesvolle verzending
+        var formStatus = document.getElementById("formStatus");
+        formStatus.textContent = "Thank you! Your message has been sent successfully.";
+
+        // Optioneel: Hier kun je code toevoegen om het formulier naar een server te sturen
+        // via bijvoorbeeld een XMLHttpRequest of fetch API.
+    });
+});
+//einde code contactpagina
