@@ -166,7 +166,6 @@ document.addEventListener("DOMContentLoaded", function () {
 // fin du code doelstellingen 1 voor brainstorming
 
 //Begin code contactpagina
-
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("contactForm").addEventListener("submit", function (e) {
         e.preventDefault();
@@ -175,8 +174,14 @@ document.addEventListener("DOMContentLoaded", function () {
         var formStatus = document.getElementById("formStatus");
         formStatus.textContent = "Thank you! Your message has been sent successfully.";
 
+        // Leegmaken van de invoervelden
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("message").value = "";
+
         // Optioneel: Hier kun je code toevoegen om het formulier naar een server te sturen
         // via bijvoorbeeld een XMLHttpRequest of fetch API.
     });
 });
+
 //einde code contactpagina
